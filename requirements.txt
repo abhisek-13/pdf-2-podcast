@@ -1,0 +1,11 @@
+langchain
+langchain_community
+pypdf
+langchain-core
+langgraph
+langchain-huggingface
+beautifulsoup4
+tiktoken
+langchain-nvidia-ai-endpoints
+edge_tts
+pydub

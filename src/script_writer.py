@@ -20,6 +20,14 @@ def script_generator(content):
   
   return script
 
+def remove_unwanted_symbols(texts):
+  unwanted_symbols = "*&$%"
+  pattern = f"[{re.escape(unwanted_symbols)}]"
+  
+  # Clean each string in the list
+  cleaned_strings = [re.sub(pattern, "", string) for string in texts]
+  return cleaned_strings
+
 def name_and_content_list(script):
 
   pattern = [r"\[(\w+)\]:\s*(.+?)\n",r"\*\*(.+?)\*\*:\s(.+)",r"(\w+):\s*(.*)",r"\[(\w+)\]\s(.+)",r"\((.*?)\)\s+(.*)",r"\((\w+)\): (.+?)(?=\n\n|\Z)"]
@@ -32,6 +40,7 @@ def name_and_content_list(script):
     # Separate names and content into two lists
     names = [match[0] for match in matches]
     contents = [match[1] for match in matches]
+    texts = remove_unwanted_symbols(contents)
     flag += 1
   
-  return (names,contents)
+  return (names,texts)

@@ -28,35 +28,22 @@ def main():
   
     
   if st.button("Generate Podcast"):
-      st.write("Generating podcast... Please wait.")
+      
       with st.spinner("Processing..."):
         script,audio = asyncio.run(pdf_2_podcast(uploaded_file)) 
         
-        
-      st.write("### Here is the Script of the Podcast:")
-      st.write(script)
-      
       # Add audio player
       st.write("### Listen to the Podcast")
       st.audio(audio.getvalue(), format="audio/mp3")
+       
+      st.write("### Here is the Script of the Podcast:")
+      st.write(script)
+      
+      
 
-      # Add download button
-      st.write("### Download the Podcast")
-      st.download_button(
-              label="Download Podcast Audio",
-              data=audio.getvalue(),
-              file_name="podcast.mp3",
-              mime="audio/mpeg")
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
   
 if __name__ == "__main__":
   main()

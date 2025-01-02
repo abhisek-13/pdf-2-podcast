@@ -15,7 +15,7 @@ from langgraph.graph import END, START, StateGraph
 import tempfile
 
 # API key
-os.environ['NVIDIA_API_KEY']="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"
+os.environ['NVIDIA_API_KEY']="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"
 
 #importing the model
 llm = ChatNVIDIA(model="meta/llama3-70b-instruct")

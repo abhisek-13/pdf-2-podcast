@@ -22,7 +22,7 @@ def script_generator(content):
 
 def name_and_content_list(script):
 
-  pattern = [r"\[(\w+)\]:\s*(.+?)\n",r"\*\*(.+?)\*\*:\s(.+)",r"(\w+):\s*(.*)"]
+  pattern = [r"\[(\w+)\]:\s*(.+?)\n",r"\*\*(.+?)\*\*:\s(.+)",r"(\w+):\s*(.*)",r"\[(\w+)\]\s(.+)",r"\((.*?)\)\s+(.*)",r"\((\w+)\): (.+?)(?=\n\n|\Z)"]
   names = []
   contents = []
   flag = 0

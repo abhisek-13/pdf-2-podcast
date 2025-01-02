@@ -12,6 +12,7 @@ from langchain.chains.combine_documents.reduce import (
 from langchain_core.documents import Document
 from langgraph.constants import Send
 from langgraph.graph import END, START, StateGraph
+import tempfile
 
 # API key
 os.environ['NVIDIA_API_KEY']="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"
@@ -21,7 +22,11 @@ llm = ChatNVIDIA(model="meta/llama3-70b-instruct")
 
 # Document loader and text extraction
 def document_loader(filepath):
-  loader = PyPDFLoader(filepath)
+  with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
+    temp_file.write(filepath.read())  # Write the contents of the uploaded file
+    temp_path = temp_file.name  
+    
+  loader = PyPDFLoader(temp_path)
   text = loader.load()
   
   return text

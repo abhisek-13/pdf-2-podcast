@@ -16,6 +16,7 @@ import tempfile
 
 # API key
 os.environ['NVIDIA_API_KEY']="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"
+os.environ['LANGCHAIN_API_KEY'] = "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"
 
 #importing the model
 llm = ChatNVIDIA(model="meta/llama3-70b-instruct")

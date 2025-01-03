@@ -4,6 +4,10 @@ from src.audio_generator import generate_podcast
 import asyncio
 import streamlit as st
 
+import sys
+venv_path = sys.prefix
+print(venv_path)
+
 async def pdf_2_podcast(uploaded_file):
   
   text = document_loader(filepath=uploaded_file)

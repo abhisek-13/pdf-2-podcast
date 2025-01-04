@@ -29,7 +29,6 @@ def main():
   st.write("Upload a PDF document to generate a podcast script and audio.")
 
   uploaded_file = st.file_uploader("", type=["pdf"])
-  
     
   if st.button("Generate Podcast"):
       
